@@ -1,0 +1,51 @@
+###
+
+GET http://localhost:4000/
+
+###
+
+POST http://localhost:4000/signup
+Content-Type: application/json
+
+{
+    "userId": "user134",
+    "name": "Maxcimian",
+    "password": "securepassword"
+}
+
+
+
+###
+POST http://localhost:4000/login
+Content-Type: application/json
+
+{
+    "userId": "user123",
+    "password": "securepassword"
+}
+
+
+###
+POST http://localhost:4000/stations
+Content-Type: application/json
+
+ {
+    "stationId": "ST105",
+    "name": "Station Nova",
+    "location": "Hyderabad",
+    "userId": 15
+  }
+
+
+###
+GET http://localhost:3000/stations
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsInVzZXJJZCI6InVzZXIxMjMiLCJuYW1lIjoiSm9obiBEb2UiLCJyb2xlIjoiVVNFUiIsImlhdCI6MTc1NDAzOTg0MywiZXhwIjoxNzU0MDM5ODczfQ.NoQuDUICHoDbF3jQ_QFmSLhsaA_odUxCqiRkShWZQXc
+
+
+###
+POST http://localhost:4000/token
+Content-Type: application/json
+
+{
+    "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsInVzZXJJZCI6InVzZXIxMjMiLCJuYW1lIjoiSm9obiBEb2UiLCJyb2xlIjoiVVNFUiIsImlhdCI6MTc1NDAzOTc2Nn0.liYgfkQKGaXKnvm5fEq9MoQxn3py3-r8_Oc31mfNBHE"
+}
