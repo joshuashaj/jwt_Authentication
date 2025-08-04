@@ -76,28 +76,6 @@ app.get("/stations", authenticateToken, async (req, res) => {
     }
 });
 
-// GET photos by albumId
-app.get("/photos", async (req, res) => {
-    try {
-        const albumId = req.query.albumId;
-        const response = await axios.get("https://jsonplaceholder.typicode.com/photos", {
-            params: { albumId },
-        });
-        res.json(response.data); // ✅ Only send the actual data
-    } catch (error) {
-        res.status(500).json({ error: "Failed to fetch photos" });
-    }
-});
-
-// GET a single photo by ID
-app.get("/photos/:id", async (req, res) => {
-    try {
-        const response = await axios.get(`https://jsonplaceholder.typicode.com/photos/${req.params.id}`);
-        res.json(response.data); // ✅ Only send the actual data
-    } catch (error) {
-        res.status(500).json({ error: "Failed to fetch photo by ID" });
-    }
-});
 
 const PORT = process.env.PORT;
 app.listen(PORT, () => {
