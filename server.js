@@ -3,7 +3,6 @@ import dotenv from 'dotenv';
 import bcrypt from "bcrypt";
 import { PrismaClient } from "@prisma/client";
 import authenticateToken from "./middleware/authenticateToken.js";
-import axios from "axios";
 
 dotenv.config();
 const app = express();
@@ -77,7 +76,7 @@ app.get("/stations", authenticateToken, async (req, res) => {
 });
 
 
-const PORT = process.env.PORT;
+const PORT = process.env.SERVER_PORT;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });

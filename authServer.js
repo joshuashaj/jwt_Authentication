@@ -78,7 +78,7 @@ app.delete("/logout", (req, res) => {
     res.sendStatus(204);
 });
 
-const PORT = process.env.PORT2;
+const PORT = process.env.AUTH_SERVER_PORT;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
