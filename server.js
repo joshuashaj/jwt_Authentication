@@ -2,7 +2,7 @@ import express from "express";
 import dotenv from 'dotenv';
 import bcrypt from "bcrypt";
 import { PrismaClient } from "@prisma/client";
-import authenticateToken from "./middleware/authenticateToken.js";
+import { authenticateToken, authorizeRole } from "./middleware/authenticateToken.js";
 
 dotenv.config();
 const app = express();
@@ -62,7 +62,7 @@ app.post("/stations", async (req, res) => {
     }
 });
 
-app.get("/stations", authenticateToken, async (req, res) => {
+app.get("/stations", authenticateToken, authorizeRole(["admin"]), async (req, res) => {
     try {
         const stations = await prisma.station.findMany({
             where: { userId: req.user.id },
